@@ -22,7 +22,7 @@ Capybara.save_path = ''
 module MyModule
   include Capybara::DSL
   @@num = 0
-  @@max_num = 40
+  @@max_num = 20
   @@tweets = []
   @@name = 'tamanobi'
 
@@ -69,7 +69,7 @@ module MyModule
       tw = getTweetIds
       @@tweets = @@tweets.concat tw
       @@tweets.uniq!
-      if @@num > @@max_num
+      if @@num >= @@max_num
         urls = getStatusUrls @@name, @@tweets
         break
       end
